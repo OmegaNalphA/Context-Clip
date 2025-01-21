@@ -9,15 +9,26 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "contextclip.helloWorld",
-        "title": "Hello World"
+        "command": "contextclip.copyOpenEditors",
+        "title": "Copy Opened Editors"
       }
-    ]
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "contextclip.copyOpenEditors",
+          "group": "3_open",
+          "when": "editorIsOpen"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
